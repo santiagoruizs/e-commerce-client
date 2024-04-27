@@ -3,7 +3,7 @@ import Banner from "../layout/Banner";
 import TopProducts from "../layout/TopProducts";
 const Home = () => {
   return (
-    <div>
+    <div className="body-container">
       <Banner />
       <TopProducts />
     </div>
