@@ -10,7 +10,7 @@ export const logIn = async ({email, password}) => {
     });
     return response.json()
 }catch(err){
-    console.log(err)
+    console.log("Error: "+err)
     return err
 }
 }   

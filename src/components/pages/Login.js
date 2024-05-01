@@ -2,36 +2,43 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { logIn } from '../../api/api';
 import { useState } from 'react';
-
+import Button from '../common/Button';
 
 
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate();
+
     const handleLogin = async (e) => {
         e.preventDefault();
-       let response = await logIn({email, password})
-       console.log(response)
-       if(response.user){
-        navigate('/home')
-       }
+        console.log("response")
+        let response = await logIn({email, password})
+        console.log(response)
+        if(response.user){
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', email);
+            navigate('/home')
+        }
+        if(response.error){
+            setPassword('')
+            alert(response.error)
+        }
     }
     return (
         <div className="login-container">
             <div>
-                <h2>Welcome!</h2>
+                <h2>Log In</h2>
+                {/* <p>Provide your credentials:</p> */}
             </div>
             <div className="login-form">
                 <form onSubmit={(e) => handleLogin(e)}>
-                    <label for="email">Email</label>
-                    <input id="email" type="email" value={email} onChange={(e)=> setEmail(e.target.value)}/>
-                    <label for="password">Password</label>
-                    <input id="password" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                    <button type="submit">LogIn</button>
+                    <input id="email" type="email" value={email} onChange={(e)=> setEmail(e.target.value)} placeholder='Email'/>
+                    <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password'/>
+                    <Button type="submit" text="Login"/>
                 </form>
             </div>
-            <NavLink to="/signup">dont have an account yet? signup here</NavLink>
+            <NavLink className="signup-text" to="/signup">Dont have an account yet? Signup here!</NavLink>
         </div>
     )
 }

@@ -1,7 +1,9 @@
 import menu from '../../assets/images/menu.png'
 import user from '../../assets/images/user.png'
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 const Header = () => {
+  let loggedIn = localStorage.getItem('isLoggedIn');
+  const navigate = useNavigate();
     return(
       <div className='header'>
         <div className="menu-dropdown">
@@ -17,9 +19,12 @@ const Header = () => {
         <div className='user-dropdown' >
           <img src={user} className='icon' alt="user icon"/>
           <div class="user-dropdown-content">
-            {/* <NavLink className ="link" to="/">Profile</NavLink> */}
-            <NavLink className ="link" to ="/signup">Sign-Up</NavLink>
-            <NavLink className ="link" to="/login">Login</NavLink>
+          {loggedIn && <NavLink className ="link" to="/profile">Profile</NavLink>}
+          {loggedIn && <NavLink className ="link" to="/login" onClick={() => {
+              localStorage.removeItem('isLoggedIn')
+              localStorage.removeItem('user email')}} >Logout</NavLink>}
+            {!loggedIn && <NavLink className ="link" to="/login">Login</NavLink>}
+            {!loggedIn && <NavLink className ="link" to ="/signup">Sign-Up</NavLink>}
           </div>
         </div>
         
