@@ -25,8 +25,39 @@ export const signUp = async ({name, email, password}) => {
         body: JSON.stringify({name, email, password})
     });
     return response.json()
-}catch(err){
-    console.log(err)
-    return err
-}
+    }catch(err){
+        console.log(err)
+        return err
+    }
 } 
+
+export const getProducts = async () => {
+    try{
+    const response = await fetch('http://localhost:8000/products',{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+          }
+    });
+    return response.json()
+    }catch(err){
+        console.log(err)
+        return err
+    }
+}
+
+// export const getTopProducts = async ({name, email, password}) => {
+//     try{
+//     const response = await fetch('http://localhost:8000/auth/signup',{
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//           },
+//         body: JSON.stringify({name, email, password})
+//     });
+//     return response.json()
+//     }catch(err){
+//         console.log(err)
+//         return err
+//     }
+// }
