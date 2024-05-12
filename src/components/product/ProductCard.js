@@ -1,3 +1,5 @@
+import ButtonAC from '../common/ButtonAC'
+
 const ProductCard = (props) => {
   return (
     <div>
@@ -6,7 +8,7 @@ const ProductCard = (props) => {
         <img src={props.imgUrl} alt={props.name} />
         <div className="bp-card">
           <p>{props.price}</p>
-          <button>Add to cart</button>
+          <ButtonAC text = "ADD TO CART"/>
         </div>
       </div>
     </div>

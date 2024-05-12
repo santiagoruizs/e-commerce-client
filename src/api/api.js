@@ -46,6 +46,21 @@ export const getProducts = async () => {
     }
 }
 
+export const getTopProducts = async () => {
+    try{
+    const response = await fetch('http://localhost:8000/products/top',{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+          }
+    });
+    return response.json()
+    }catch(err){
+        console.log(err)
+        return err
+    }
+}
+
 // export const getTopProducts = async ({name, email, password}) => {
 //     try{
 //     const response = await fetch('http://localhost:8000/auth/signup',{
