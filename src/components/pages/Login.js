@@ -18,6 +18,7 @@ const Login = () => {
         if(response.user){
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('userEmail', email);
+            localStorage.setItem('id', response.user.id);
             navigate('/home')
         }
         if(response.error){

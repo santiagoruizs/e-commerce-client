@@ -1,0 +1,24 @@
+.cart-container{
+    width: 100%;
+    min-height: 82vh;
+    background-color: white;
+}
+.cart-product-list{
+    width: 80%;
+    margin: auto;
+}
+
+.cart-summary{
+    display: flex;
+
+    align-items: center;
+
+    width: 30%;
+}
+.division{
+    width: 80%;
+    border-bottom: 2px solid black;
+}
+.cart-summary button{
+    margin: 10px;
+}

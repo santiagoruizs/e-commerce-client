@@ -11,6 +11,8 @@ const Header = () => {
           <div className="menu-dropdown-content">
             <NavLink className ="link" to ="/home">Home</NavLink>
             <NavLink className ="link" to ="/store">Store</NavLink>
+            {loggedIn && <NavLink className ="link" to="/cart">Cart</NavLink>}
+            {loggedIn && <NavLink className ="link" to="/orders">Orders</NavLink>}
             {/* <NavLink className ="link" to="">Bio</NavLink>
             <NavLink className ="link" to="">Contact Us</NavLink> */}
           </div>

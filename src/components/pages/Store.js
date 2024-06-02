@@ -48,7 +48,7 @@ const Store = () => {
                 <img src={filter} className = {`filter-button${!filterOpen ? "" : "-hide"}`} onClick={togglePanel}/>
             </div> */}
             <div className="product-list">
-                {filteredProducts.map(product => <ProductCard title={product.name} imgUrl={product.imageurl} name={product.name} price={product.price}/>)}
+                {filteredProducts.map(product => <ProductCard title={product.name} imgUrl={product.imageurl} name={product.name} price={product.price} id={product.id}/>)}
             </div>
         </div>
     )

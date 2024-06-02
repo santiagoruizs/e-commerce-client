@@ -14,7 +14,7 @@ const TopProducts = () => {
         <div className="body">
         <h2>Top Products</h2>
         <div className="top-products">
-          {topProducts.map(product => <ProductCard title={product.name} imgUrl={product.imageurl} name={product.name} price={product.price}/>)}
+          {topProducts.map(product => <ProductCard title={product.name} imgUrl={product.imageurl} name={product.name} price={product.price} id = {product.id}/>)}
         </div>
       </div>
     ) 

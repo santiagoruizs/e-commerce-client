@@ -75,6 +75,11 @@
     height: 300px;
 }
 
+.product-container{
+  text-decoration: none;
+  color: black;
+}
+
 .product-card{
     border: 2px whitesmoke solid;
     border-radius: 10px;
